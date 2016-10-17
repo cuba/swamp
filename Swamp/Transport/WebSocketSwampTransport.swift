@@ -11,24 +11,34 @@ import Starscream
 
 open class WebSocketSwampTransport: SwampTransport, WebSocketDelegate {
     
+    public enum WampProtocol : String {
+        case json = "wamp.2.json"
+        case msgpack = "wamp.2.msgpack"
+        case jsonBatched = "wamp.2.json.batched"
+        case msgpackBatched = "wamp.2.msgpack.batched"
+    }
+
     enum WebsocketMode {
         case binary, text
     }
-    
+
     open var delegate: SwampTransportDelegate?
     let socket: WebSocket
     let mode: WebsocketMode
     
     fileprivate var disconnectionReason: String?
     
-    public init(wsEndpoint: URL){
-        self.socket = WebSocket(url: wsEndpoint, protocols: ["wamp.2.json"])
+    public init(wsEndpoint: URL, protocols: [WampProtocol]) {
+        self.socket = WebSocket(url: wsEndpoint, protocols: protocols.map({$0.rawValue}) )
         self.mode = .text
         socket.delegate = self
     }
+
+    convenience public init(wsEndpoint: URL){
+        self.init(wsEndpoint: wsEndpoint, protocols: [.json])
+    }
     
     // MARK: Transport
-    
     open func connect() {
         self.socket.connect()
     }
@@ -49,6 +59,7 @@ open class WebSocketSwampTransport: SwampTransport, WebSocketDelegate {
     // MARK: WebSocketDelegate
     
     open func websocketDidConnect(socket: WebSocket) {
+        print(socket.headers)
         // TODO: Check which serializer is supported by the server, and choose self.mode and serializer
         delegate?.swampTransportDidConnectWithSerializer(JSONSwampSerializer())
     }

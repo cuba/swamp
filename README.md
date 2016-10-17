@@ -191,6 +191,7 @@ You can also inspect `Example/swamp-crossbar-instance.log` to find out what happ
 
 - Yossi Abraham, yo.ab@outlook.com (Author)
 - Dany Sousa, @danysousa (Swift 3 support)
+- Eli Burke, @eliburke (Carthage, Msgpack)
 
 ## License
 

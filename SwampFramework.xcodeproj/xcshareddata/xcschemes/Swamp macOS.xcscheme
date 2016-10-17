@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5424B87B1DAD576A00236769"
+               BlueprintIdentifier = "543C069E1DB5424200FC8257"
                BuildableName = "Swamp.framework"
-               BlueprintName = "Swamp"
+               BlueprintName = "Swamp macOS"
                ReferencedContainer = "container:SwampFramework.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5424B87B1DAD576A00236769"
-            BuildableName = "Swamp.framework"
-            BlueprintName = "Swamp iOS"
-            ReferencedContainer = "container:Swamp.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -54,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5424B87B1DAD576A00236769"
+            BlueprintIdentifier = "543C069E1DB5424200FC8257"
             BuildableName = "Swamp.framework"
-            BlueprintName = "Swamp"
+            BlueprintName = "Swamp macOS"
             ReferencedContainer = "container:SwampFramework.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -69,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "543C069E1DB5424200FC8257"
+            BuildableName = "Swamp.framework"
+            BlueprintName = "Swamp macOS"
+            ReferencedContainer = "container:SwampFramework.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
