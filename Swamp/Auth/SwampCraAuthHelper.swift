@@ -7,40 +7,59 @@
 //
 
 import Foundation
-import CommonCrypto
+
+//import CommonCrypto
+// NOTE: until there a better solution, here is how to add CommonCrypto without ObjC wrappers
+// http://stackoverflow.com/questions/25248598/importing-commoncrypto-in-a-swift-framework
+// Here are swift wrappers for many CommonCrypto functions for reference purposes
+// https://github.com/iosdevzone/IDZSwiftCommonCrypto
 
 open class SwampCraAuthHelper {
     
-    private func hmac(input: String, key: Data) -> Data {
-        let inputBytes = input.cString(using: .utf8)
-        let inputLength = input.lengthOfBytes(using: .utf8)
-        var output = Data(count: Int(CC_SHA1_DIGEST_LENGTH))
-
+    open static func compute_wcs(key: String, challenge: String) -> String {
+        var output = Data(count: Int(CC_SHA256_DIGEST_LENGTH))
+        let keyBytes = key.utf8.map {$0}
+        let challengeBytes = challenge.utf8.map {$0}
+        
         let _ = output.withUnsafeMutableBytes { outBytes in
-            key.withUnsafeBytes { keyBytes in
-                //void CCHmac(CCHmacAlgorithm algorithm, const void *key, size_t keyLength, const void *data, size_t dataLength, void *macOut);
-                CCHmac(CCHmacAlgorithm(kCCHmacAlgSHA1), keyBytes, key.count, inputBytes, inputLength, outBytes);
-            }
+            CCHmac(CCHmacAlgorithm(kCCHmacAlgSHA256), keyBytes, keyBytes.count, challengeBytes, challengeBytes.count, outBytes);
         }
-
-        return output
+        
+        return output.base64EncodedString()
     }
     
+    open static func derive_key(secret: String, salt: String, iterations: Int, keyLen: Int) -> String {
+
+        var output = Data(count: keyLen)
+        let secretBytes = secret.utf8.map {$0}
+        let saltBytes = salt.utf8.map {$0}
+        
+        let _ = output.withUnsafeMutableBytes { outBytes in
+            CCKeyDerivationPBKDF(CCPBKDFAlgorithm(kCCPBKDF2), secret, secretBytes.count, saltBytes, saltBytes.count,
+                                 CCPBKDFAlgorithm(kCCPRFHmacAlgSHA256), UInt32(iterations), outBytes, keyLen);
+        }
+        return output.base64EncodedString()
+    }
     
-    /*
- private func hmac(string: NSString, key: NSData) -> NSData {
- let keyBytes = UnsafePointer<CUnsignedChar>(key.bytes)
- let data = string.cStringUsingEncoding(NSUTF8StringEncoding)
- let dataLen = Int(string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
- let digestLen = Int(CC_SHA1_DIGEST_LENGTH)
- let result = UnsafeMutablePointer<CUnsignedChar>.alloc(digestLen)
- CCHmac(CCHmacAlgorithm(kCCHmacAlgSHA1), keyBytes, key.length, data, dataLen, result);
- return NSData(bytes: result, length: digestLen)
- }
+    open static func test_cra() {
+        
+        // plain, unsalted
+        let foo = SwampCraAuthHelper.compute_wcs(key: "farside1", challenge: "workingforjimisfun")
+        print("foo = \(foo) [should be lZa3t1YfOrFf9ooh/1SkgE8ccXOAs2MIYhVFmrff4us=]") // lZa3t1YfOrFf9ooh/1SkgE8ccXOAs2MIYhVFmrff4us=
+        
+        // salted
+        var bar = SwampCraAuthHelper.derive_key(secret: "farside1", salt: "RRAbWAtgLnCw", iterations: 30000, keyLen: 32)
+        bar = SwampCraAuthHelper.compute_wcs(key: bar, challenge: "workingforjimisfun")
+        print("bar = \(bar) [should be 21lRNJpOCyD2DpjWW7E99M5H1hZ0EmsU1YEJNpjOoAE=]") // 21lRNJpOCyD2DpjWW7E99M5H1hZ0EmsU1YEJNpjOoAE
+    }
+    
+/*
+    open static func sign(_ secret: String, challenge: String) -> String {
+        let hmac: Array<UInt8> = try! CryptoSwift.HMAC(key: secret.utf8.map {$0}, variant: .sha256).authenticate(challenge.utf8.map {$0})
+        return hmac.toBase64()!
+    }
  */
     
-//    open static func sign(_ secret: String, challenge: String) -> String {
-//        let hmac: Array<UInt8> = try! CryptoSwift.HMAC(key: secret.utf8.map {$0}, variant: .sha256).authenticate(challenge.utf8.map {$0})
-//        return hmac.toBase64()!
-//    }
 }
+
+
