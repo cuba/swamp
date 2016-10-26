@@ -93,12 +93,6 @@ open class MsgpackSwampSerializer: SwampSerializer {
     open func pack(_ data: [Any]) -> Data? {
         var packed = Data()
         
-//        for value in data {
-//            if let mpValue = anyToMPValue(anyObj: value) {
-//                packed.append(MessagePack.pack(mpValue))
-//            }
-//        }
-        
         if let mpValue = anyToMPValue(anyVal: data) {
             packed.append(MessagePack.pack(mpValue))
         }

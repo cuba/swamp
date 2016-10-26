@@ -25,17 +25,26 @@ open class WebSocketSwampTransport: SwampTransport, WebSocketDelegate {
     open var delegate: SwampTransportDelegate?
     let socket: WebSocket
     let mode: WebsocketMode
+    let serializer : SwampSerializer
     
     fileprivate var disconnectionReason: String?
     
-    public init(wsEndpoint: URL, protocols: [WampProtocol]) {
-        self.socket = WebSocket(url: wsEndpoint, protocols: protocols.map({$0.rawValue}) )
-        self.mode = .text
+    public init(wsEndpoint: URL, proto: WampProtocol) {
+        self.socket = WebSocket(url: wsEndpoint, protocols: [proto.rawValue])
+        
+        switch (proto) {
+        case .json, .jsonBatched:
+            self.mode = .text
+            self.serializer = JSONSwampSerializer()
+        case .msgpack, .msgpackBatched:
+            self.mode = .binary
+            self.serializer = MsgpackSwampSerializer()
+        }
         socket.delegate = self
     }
 
-    convenience public init(wsEndpoint: URL){
-        self.init(wsEndpoint: wsEndpoint, protocols: [.json])
+    convenience public init(wsEndpoint: URL) {
+        self.init(wsEndpoint: wsEndpoint, proto: .json)
     }
     
     // MARK: Transport
@@ -59,9 +68,9 @@ open class WebSocketSwampTransport: SwampTransport, WebSocketDelegate {
     // MARK: WebSocketDelegate
     
     open func websocketDidConnect(socket: WebSocket) {
-        print(socket.headers)
+
         // TODO: Check which serializer is supported by the server, and choose self.mode and serializer
-        delegate?.swampTransportDidConnectWithSerializer(JSONSwampSerializer())
+        delegate?.swampTransportDidConnectWithSerializer(serializer)
     }
     
     open func websocketDidDisconnect(socket: WebSocket, error: NSError?) {

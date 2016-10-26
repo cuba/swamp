@@ -8,6 +8,7 @@ import SwiftyJSON
 // MARK: Call callbacks
 public typealias CallCallback = (_ details: [String: Any], _ results: [Any]?, _ kwResults: [String: Any]?) -> Void
 public typealias ErrorCallCallback = (_ details: [String: Any], _ error: String, _ args: [Any]?, _ kwargs: [String: Any]?) -> Void
+
 // MARK: Callee callbacks
 // For now callee is irrelevant
 //public typealias RegisterCallback = (registration: Registration) -> Void
@@ -15,12 +16,14 @@ public typealias ErrorCallCallback = (_ details: [String: Any], _ error: String,
 //public typealias SwampProc = (args: [AnyObject]?, kwargs: [String: AnyObject]?) -> AnyObject
 //public typealias UnregisterCallback = () -> Void
 //public typealias ErrorUnregsiterCallback = (details: [String: AnyObject], error: String) -> Void
+
 // MARK: Subscribe callbacks
 public typealias SubscribeCallback = (_ subscription: Subscription) -> Void
 public typealias ErrorSubscribeCallback = (_ details: [String: Any], _ error: String) -> Void
 public typealias EventCallback = (_ details: [String: Any], _ results: [Any]?, _ kwResults: [String: Any]?) -> Void
 public typealias UnsubscribeCallback = () -> Void
 public typealias ErrorUnsubscribeCallback = (_ details: [String: Any], _ error: String) -> Void
+
 // MARK: Publish callbacks
 public typealias PublishCallback = () -> Void
 public typealias ErrorPublishCallback = (_ details: [String: Any], _ error: String) -> Void

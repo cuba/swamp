@@ -41,24 +41,23 @@
 		5424B8D41DAD57F800236769 /* SwampTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424B8B31DAD57F800236769 /* SwampTransport.swift */; };
 		5424B8D51DAD57F800236769 /* WebSocketSwampTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424B8B41DAD57F800236769 /* WebSocketSwampTransport.swift */; };
 		543C064A1DB50C5600FC8257 /* Swamp.h in Headers */ = {isa = PBXBuildFile; fileRef = 543C06481DB50C5600FC8257 /* Swamp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		543C065D1DB50E1000FC8257 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543C065A1DB50E1000FC8257 /* CryptoSwift.framework */; };
 		543C065E1DB50E1000FC8257 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543C065B1DB50E1000FC8257 /* Starscream.framework */; };
 		543C065F1DB50E1000FC8257 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543C065C1DB50E1000FC8257 /* SwiftyJSON.framework */; };
 		543C06841DB526B200FC8257 /* MsgpackSwampSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C06831DB526B200FC8257 /* MsgpackSwampSerializer.swift */; };
 		543C06871DB5289C00FC8257 /* MessagePack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543C06861DB5289C00FC8257 /* MessagePack.framework */; };
 		543C06A71DB5426400FC8257 /* MessagePack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543C06961DB5406600FC8257 /* MessagePack.framework */; };
-		543C06A81DB5426400FC8257 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543C064C1DB50C8300FC8257 /* CryptoSwift.framework */; };
 		543C06A91DB5426400FC8257 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543C064D1DB50C8300FC8257 /* Starscream.framework */; };
 		543C06AA1DB5426400FC8257 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543C064E1DB50C8300FC8257 /* SwiftyJSON.framework */; };
 		543C06B01DB5428100FC8257 /* MessagePack.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 543C06AC1DB5428100FC8257 /* MessagePack.framework.dSYM */; };
-		543C06B11DB5428100FC8257 /* CryptoSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 543C06AD1DB5428100FC8257 /* CryptoSwift.framework.dSYM */; };
 		543C06B21DB5428100FC8257 /* Starscream.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 543C06AE1DB5428100FC8257 /* Starscream.framework.dSYM */; };
 		543C06B31DB5428100FC8257 /* SwiftyJSON.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 543C06AF1DB5428100FC8257 /* SwiftyJSON.framework.dSYM */; };
 		543C06B41DB542AF00FC8257 /* Swamp.h in Headers */ = {isa = PBXBuildFile; fileRef = 543C06481DB50C5600FC8257 /* Swamp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		543C06B51DB543EA00FC8257 /* CryptoSwift.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 543C06541DB50D5D00FC8257 /* CryptoSwift.framework.dSYM */; };
 		543C06B61DB543EA00FC8257 /* MessagePack.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 543C06981DB5409700FC8257 /* MessagePack.framework.dSYM */; };
 		543C06B71DB543EA00FC8257 /* Starscream.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 543C06551DB50D5D00FC8257 /* Starscream.framework.dSYM */; };
 		543C06B81DB543EA00FC8257 /* SwiftyJSON.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 543C06561DB50D5D00FC8257 /* SwiftyJSON.framework.dSYM */; };
+		54C2E1C81DBFF84000246590 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2E1BB1DBFD79400246590 /* CommonCrypto.framework */; };
+		54C2E1CA1DBFFDA000246590 /* SwampAuthMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C2E1C91DBFFDA000246590 /* SwampAuthMethod.swift */; };
+		54C2E1CB1DBFFDA000246590 /* SwampAuthMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C2E1C91DBFFDA000246590 /* SwampAuthMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,7 +68,6 @@
 			dstSubfolderSpec = 16;
 			files = (
 				543C06B01DB5428100FC8257 /* MessagePack.framework.dSYM in CopyFiles */,
-				543C06B11DB5428100FC8257 /* CryptoSwift.framework.dSYM in CopyFiles */,
 				543C06B21DB5428100FC8257 /* Starscream.framework.dSYM in CopyFiles */,
 				543C06B31DB5428100FC8257 /* SwiftyJSON.framework.dSYM in CopyFiles */,
 			);
@@ -114,13 +112,10 @@
 		5424B8B41DAD57F800236769 /* WebSocketSwampTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketSwampTransport.swift; sourceTree = "<group>"; };
 		543C06481DB50C5600FC8257 /* Swamp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swamp.h; sourceTree = "<group>"; };
 		543C06491DB50C5600FC8257 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		543C064C1DB50C8300FC8257 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/Mac/CryptoSwift.framework; sourceTree = "<group>"; };
 		543C064D1DB50C8300FC8257 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/Mac/Starscream.framework; sourceTree = "<group>"; };
 		543C064E1DB50C8300FC8257 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
-		543C06541DB50D5D00FC8257 /* CryptoSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CryptoSwift.framework.dSYM; path = Carthage/Build/Mac/CryptoSwift.framework.dSYM; sourceTree = "<group>"; };
 		543C06551DB50D5D00FC8257 /* Starscream.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Starscream.framework.dSYM; path = Carthage/Build/Mac/Starscream.framework.dSYM; sourceTree = "<group>"; };
 		543C06561DB50D5D00FC8257 /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/Mac/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
-		543C065A1DB50E1000FC8257 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		543C065B1DB50E1000FC8257 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		543C065C1DB50E1000FC8257 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		543C06831DB526B200FC8257 /* MsgpackSwampSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgpackSwampSerializer.swift; sourceTree = "<group>"; };
@@ -129,9 +124,12 @@
 		543C06981DB5409700FC8257 /* MessagePack.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = MessagePack.framework.dSYM; path = Carthage/Build/Mac/MessagePack.framework.dSYM; sourceTree = "<group>"; };
 		543C069F1DB5424200FC8257 /* Swamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		543C06AC1DB5428100FC8257 /* MessagePack.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = MessagePack.framework.dSYM; path = Carthage/Build/Mac/MessagePack.framework.dSYM; sourceTree = "<group>"; };
-		543C06AD1DB5428100FC8257 /* CryptoSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CryptoSwift.framework.dSYM; path = Carthage/Build/Mac/CryptoSwift.framework.dSYM; sourceTree = "<group>"; };
 		543C06AE1DB5428100FC8257 /* Starscream.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Starscream.framework.dSYM; path = Carthage/Build/Mac/Starscream.framework.dSYM; sourceTree = "<group>"; };
 		543C06AF1DB5428100FC8257 /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/Mac/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
+		54C2E1BB1DBFD79400246590 /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54C2E1BE1DBFD79400246590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54C2E1C31DBFD81C00246590 /* CommonCrypto.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CommonCrypto.xcconfig; sourceTree = "<group>"; };
+		54C2E1C91DBFFDA000246590 /* SwampAuthMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwampAuthMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +137,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54C2E1C81DBFF84000246590 /* CommonCrypto.framework in Frameworks */,
 				543C06871DB5289C00FC8257 /* MessagePack.framework in Frameworks */,
-				543C065D1DB50E1000FC8257 /* CryptoSwift.framework in Frameworks */,
 				543C065E1DB50E1000FC8257 /* Starscream.framework in Frameworks */,
 				543C065F1DB50E1000FC8257 /* SwiftyJSON.framework in Frameworks */,
 			);
@@ -151,9 +149,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				543C06A71DB5426400FC8257 /* MessagePack.framework in Frameworks */,
-				543C06A81DB5426400FC8257 /* CryptoSwift.framework in Frameworks */,
 				543C06A91DB5426400FC8257 /* Starscream.framework in Frameworks */,
 				543C06AA1DB5426400FC8257 /* SwiftyJSON.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54C2E1B71DBFD79400246590 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,10 +168,10 @@
 			isa = PBXGroup;
 			children = (
 				543C06AC1DB5428100FC8257 /* MessagePack.framework.dSYM */,
-				543C06AD1DB5428100FC8257 /* CryptoSwift.framework.dSYM */,
 				543C06AE1DB5428100FC8257 /* Starscream.framework.dSYM */,
 				543C06AF1DB5428100FC8257 /* SwiftyJSON.framework.dSYM */,
 				5424B87E1DAD576A00236769 /* Swamp */,
+				54C2E1BC1DBFD79400246590 /* CommonCrypto */,
 				5424B87D1DAD576A00236769 /* Products */,
 				5424B8D61DAD5A0100236769 /* Frameworks */,
 			);
@@ -178,6 +182,7 @@
 			children = (
 				5424B87C1DAD576A00236769 /* Swamp.framework */,
 				543C069F1DB5424200FC8257 /* Swamp.framework */,
+				54C2E1BB1DBFD79400246590 /* CommonCrypto.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				5424B8881DAD57F800236769 /* SwampCraAuthHelper.swift */,
+				54C2E1C91DBFFDA000246590 /* SwampAuthMethod.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -334,18 +340,24 @@
 			children = (
 				543C06961DB5406600FC8257 /* MessagePack.framework */,
 				543C06861DB5289C00FC8257 /* MessagePack.framework */,
-				543C065A1DB50E1000FC8257 /* CryptoSwift.framework */,
 				543C065B1DB50E1000FC8257 /* Starscream.framework */,
 				543C065C1DB50E1000FC8257 /* SwiftyJSON.framework */,
-				543C064C1DB50C8300FC8257 /* CryptoSwift.framework */,
 				543C064D1DB50C8300FC8257 /* Starscream.framework */,
 				543C064E1DB50C8300FC8257 /* SwiftyJSON.framework */,
-				543C06541DB50D5D00FC8257 /* CryptoSwift.framework.dSYM */,
 				543C06981DB5409700FC8257 /* MessagePack.framework.dSYM */,
 				543C06551DB50D5D00FC8257 /* Starscream.framework.dSYM */,
 				543C06561DB50D5D00FC8257 /* SwiftyJSON.framework.dSYM */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		54C2E1BC1DBFD79400246590 /* CommonCrypto */ = {
+			isa = PBXGroup;
+			children = (
+				54C2E1BE1DBFD79400246590 /* Info.plist */,
+				54C2E1C31DBFD81C00246590 /* CommonCrypto.xcconfig */,
+			);
+			path = CommonCrypto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +376,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				543C06B41DB542AF00FC8257 /* Swamp.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54C2E1B81DBFD79400246590 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +427,24 @@
 			productReference = 543C069F1DB5424200FC8257 /* Swamp.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		54C2E1BA1DBFD79400246590 /* CommonCrypto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54C2E1C21DBFD79400246590 /* Build configuration list for PBXNativeTarget "CommonCrypto" */;
+			buildPhases = (
+				54C2E1B61DBFD79400246590 /* Sources */,
+				54C2E1B71DBFD79400246590 /* Frameworks */,
+				54C2E1B81DBFD79400246590 /* Headers */,
+				54C2E1B91DBFD79400246590 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CommonCrypto;
+			productName = CommonCrypto;
+			productReference = 54C2E1BB1DBFD79400246590 /* CommonCrypto.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -425,6 +462,11 @@
 						ProvisioningStyle = Automatic;
 					};
 					543C069E1DB5424200FC8257 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+					54C2E1BA1DBFD79400246590 = {
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
 					};
@@ -445,6 +487,7 @@
 			targets = (
 				5424B87B1DAD576A00236769 /* Swamp iOS */,
 				543C069E1DB5424200FC8257 /* Swamp macOS */,
+				54C2E1BA1DBFD79400246590 /* CommonCrypto */,
 			);
 		};
 /* End PBXProject section */
@@ -462,9 +505,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				543C06B81DB543EA00FC8257 /* SwiftyJSON.framework.dSYM in Resources */,
-				543C06B51DB543EA00FC8257 /* CryptoSwift.framework.dSYM in Resources */,
 				543C06B61DB543EA00FC8257 /* MessagePack.framework.dSYM in Resources */,
 				543C06B71DB543EA00FC8257 /* Starscream.framework.dSYM in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54C2E1B91DBFD79400246590 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,7 +527,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MessagePack.framework",
 			);
@@ -496,6 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5424B8BF1DAD57F800236769 /* UnsubscribedSwampMessage.swift in Sources */,
+				54C2E1CA1DBFFDA000246590 /* SwampAuthMethod.swift in Sources */,
 				5424B8D51DAD57F800236769 /* WebSocketSwampTransport.swift in Sources */,
 				5424B8B51DAD57F800236769 /* SwampCraAuthHelper.swift in Sources */,
 				5424B8CF1DAD57F800236769 /* JSONSwampSerializer.swift in Sources */,
@@ -533,6 +582,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		543C069A1DB5424200FC8257 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54C2E1CB1DBFFDA000246590 /* SwampAuthMethod.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54C2E1B61DBFD79400246590 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -695,6 +752,34 @@
 		543C06A51DB5424200FC8257 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/Swamp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.iscriptology.Swamp-macOS";
+				PRODUCT_NAME = Swamp;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		543C06A61DB5424200FC8257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -715,28 +800,41 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
-			name = Debug;
+			name = Release;
 		};
-		543C06A61DB5424200FC8257 /* Release */ = {
+		54C2E1C01DBFD79400246590 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54C2E1C31DBFD81C00246590 /* CommonCrypto.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
+				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "$(SRCROOT)/Swamp/Info.plist";
+				INFOPLIST_FILE = CommonCrypto/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.iscriptology.Swamp-macOS";
-				PRODUCT_NAME = Swamp;
-				SDKROOT = macosx;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.iscriptology.CommonCrypto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		54C2E1C11DBFD79400246590 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54C2E1C31DBFD81C00246590 /* CommonCrypto.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CommonCrypto/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.iscriptology.CommonCrypto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -771,6 +869,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		54C2E1C21DBFD79400246590 /* Build configuration list for PBXNativeTarget "CommonCrypto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54C2E1C01DBFD79400246590 /* Debug */,
+				54C2E1C11DBFD79400246590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
