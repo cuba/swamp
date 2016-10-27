@@ -8,7 +8,7 @@
 
 import Foundation
 
-//import CommonCrypto
+// import CommonCrypto
 // NOTE: until there a better solution, here is how to add CommonCrypto without ObjC wrappers
 // http://stackoverflow.com/questions/25248598/importing-commoncrypto-in-a-swift-framework
 // Here are swift wrappers for many CommonCrypto functions for reference purposes
@@ -21,8 +21,8 @@ open class SwampCraAuthHelper {
         let keyBytes = key.utf8.map {$0}
         let challengeBytes = challenge.utf8.map {$0}
         
-        let _ = output.withUnsafeMutableBytes { outBytes in
-            CCHmac(CCHmacAlgorithm(kCCHmacAlgSHA256), keyBytes, keyBytes.count, challengeBytes, challengeBytes.count, outBytes);
+        let _ = output.withUnsafeMutableBytes {
+            CCHmac(CCHmacAlgorithm(kCCHmacAlgSHA256), keyBytes, keyBytes.count, challengeBytes, challengeBytes.count, $0);
         }
         
         return output.base64EncodedString()
@@ -34,9 +34,9 @@ open class SwampCraAuthHelper {
         let secretBytes = secret.utf8.map {$0}
         let saltBytes = salt.utf8.map {$0}
         
-        let _ = output.withUnsafeMutableBytes { outBytes in
+        let _ = output.withUnsafeMutableBytes {
             CCKeyDerivationPBKDF(CCPBKDFAlgorithm(kCCPBKDF2), secret, secretBytes.count, saltBytes, saltBytes.count,
-                                 CCPBKDFAlgorithm(kCCPRFHmacAlgSHA256), UInt32(iterations), outBytes, keyLen);
+                                 CCPBKDFAlgorithm(kCCPRFHmacAlgSHA256), UInt32(iterations), $0, keyLen);
         }
         return output.base64EncodedString()
     }

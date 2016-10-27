@@ -196,7 +196,7 @@ open class SwampSession: SwampTransportDelegate {
             self.delegate?.swampSessionEnded(reason!)
         }
         else if error != nil {
-            self.delegate?.swampSessionEnded("Unexpected error: \(error!.description)")
+            self.delegate?.swampSessionEnded("Unexpected error: \(error!.localizedDescription)")
         } else {
             self.delegate?.swampSessionEnded("Unknown error.")
         }
