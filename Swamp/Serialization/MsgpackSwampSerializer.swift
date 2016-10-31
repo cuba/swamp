@@ -17,71 +17,111 @@ open class MsgpackSwampSerializer: SwampSerializer {
         switch(anyVal) {
             
         case is Bool:
-            print("Bool")
             return MessagePackValue(anyVal as! Bool)
-            
-        case is Int: // will not handle Int8, Int16, Int32, Int64
-            print("Int")
+        case is Int:
             return MessagePackValue(anyVal as! Int)
-            
-        case is UInt: // does not handle UInt8, UInt16, UInt32, UInt64
-            print("UInt")
+        case is Int8:
+            return MessagePackValue(anyVal as! Int8)
+        case is Int16:
+            return MessagePackValue(anyVal as! Int16)
+        case is Int32:
+            return MessagePackValue(anyVal as! Int32)
+        case is Int64:
+            return MessagePackValue(anyVal as! Int64)
+        case is UInt:
             return MessagePackValue(anyVal as! UInt)
-            
+        case is UInt8:
+            return MessagePackValue(anyVal as! UInt8)
+        case is UInt16:
+            return MessagePackValue(anyVal as! UInt16)
+        case is UInt32:
+            return MessagePackValue(anyVal as! UInt32)
+        case is UInt64:
+            return MessagePackValue(anyVal as! UInt64)
         case is Float:
-            print("Float")
             return MessagePackValue(anyVal as! Float)
-            
         case is Double:
-            print("Double")
             return MessagePackValue(anyVal as! Double)
-            
         case is String:
-            print("String")
             return MessagePackValue(anyVal as! String)
-            
+        case is Data:
+            return MessagePackValue(anyVal as! Data)
         case is Array<Any>:
-            print("Array")
-            var mpArray = Array<MessagePackValue>()
-
             let arrayVal = anyVal as! Array<Any>
+            var mpArray = Array<MessagePackValue>()
             for value in arrayVal {
                 if let mpValue = anyToMPValue(anyVal: value) {
                     mpArray.append(mpValue)
                 } else {
-                    print("failed to convert")
-                    print(value)
+                    print("Failed to convert '\(value)' to mpValue")
                 }
             }
             return MessagePackValue(mpArray)
-            
         case is Dictionary<String, Any>:
-            print("Dictionary")
-            var mpDict = [MessagePackValue : MessagePackValue]()
-
             let dictVal = anyVal as! Dictionary<String, Any>
+            var mpDict = [MessagePackValue : MessagePackValue]()
             for (key,value) in dictVal {
                 let mpKey = MessagePackValue(key)
                 if let mpValue = anyToMPValue(anyVal: value) {
                     mpDict[mpKey] = mpValue
                 } else {
-                    print("failed to convert")
-                    print(value)
+                    print("Failed to convert '\(value)'")
                 }
             }
             return MessagePackValue(mpDict)
             
-        case is Data:
-            print("Data")
-            return MessagePackValue(anyVal as! Data)
-            
         default:
-            print("Unknown type")
+            print("Unknown type for `\(anyVal)` -- cannot convert to mpValue")
             return nil;
         }
     }
     
-    open func pack(_ data: [MessagePackValue]) -> Data? {
+    open func mpValueToAny(_ mpValue : MessagePackValue) -> Any? {
+        switch(mpValue) {
+            
+        case .bool:
+            return mpValue.boolValue
+        case .int:
+            return mpValue.integerValue
+        case .uint:
+            return mpValue.unsignedIntegerValue
+        case .float:
+            return mpValue.floatValue
+        case .double:
+            return mpValue.doubleValue
+        case .string:
+            return mpValue.stringValue
+        case .binary:
+            return mpValue.dataValue
+        case .array:
+            var array = [Any]()
+            if let mpArray = mpValue.arrayValue {
+                for mpSubVal in mpArray {
+                    array.append(mpValueToAny(mpSubVal))
+                }
+            }
+            return array
+        case .map:
+            var dict = [String : Any]()
+            if let mpDict = mpValue.dictionaryValue {
+                for (mpKey, mpSubVal) in mpDict {
+                    if let key = mpKey.stringValue, let val = mpValueToAny(mpSubVal) {
+                        dict[key] = val
+                    } else {
+                        print("Failed to convert '\(mpKey)' and '\(mpSubVal)'")
+                    }
+                }
+            }
+            return dict
+        default:
+            print("Failed to covnert unknown mpValue type: \(mpValue)")
+            return nil
+        }
+    }
+    
+    //MARK: Serializers
+    
+    open func pack(_ data: [MessagePackValue]) -> Data? { // untested
         var packed = Data()
         
         for mpValue in data {
@@ -102,10 +142,20 @@ open class MsgpackSwampSerializer: SwampSerializer {
     
     open func unpack(_ data: Data) -> [Any]? {
         do {
-            return try unpackAll(data) as [Any]?
+            var unpacked = [Any]()
+            let mpArray = try unpackAll(data)
+
+            for mpValue in mpArray {
+                unpacked.append(mpValueToAny(mpValue))
+            }
+            
+            return unpacked[0] as? [Any]
         }
         catch {
             return nil
         }
     }
+ 
+    
+    
 }
