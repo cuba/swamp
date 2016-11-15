@@ -52,6 +52,10 @@ open class WebSocketSwampTransport: SwampTransport, WebSocketDelegate {
         self.socket.connect()
     }
     
+    open func setConnectHeaders(headers: [String : String]) {
+        self.socket.headers = headers
+    }
+    
     open func disconnect(_ reason: String) {
         self.disconnectionReason = reason
         self.socket.disconnect()

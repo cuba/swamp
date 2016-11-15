@@ -120,6 +120,10 @@ open class SwampSession: SwampTransportDelegate {
 
     // MARK: Public API
 
+    public func setHeaders(connectHeaders : [String : String]) {
+        self.transport.setConnectHeaders(headers: connectHeaders)
+    }
+    
     final public func isConnected() -> Bool {
         return self.sessionId != nil
     }
