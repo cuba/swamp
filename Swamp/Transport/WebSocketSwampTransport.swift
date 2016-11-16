@@ -18,7 +18,7 @@ open class WebSocketSwampTransport: SwampTransport, WebSocketDelegate {
         case msgpackBatched = "wamp.2.msgpack.batched"
     }
 
-    enum WebsocketMode {
+    public enum WebsocketMode {
         case binary, text
     }
 
@@ -29,16 +29,23 @@ open class WebSocketSwampTransport: SwampTransport, WebSocketDelegate {
     
     fileprivate var disconnectionReason: String?
     
-    public init(wsEndpoint: URL, proto: WampProtocol) {
-        self.socket = WebSocket(url: wsEndpoint, protocols: [proto.rawValue])
+    public init(wsEndpoint: URL, proto: WampProtocol, customSerializer: SwampSerializer? = nil) {
+        
+        socket = WebSocket(url: wsEndpoint, protocols: [proto.rawValue])
+        let guessedSerializer: SwampSerializer!
         
         switch (proto) {
-        case .json, .jsonBatched:
-            self.mode = .text
-            self.serializer = JSONSwampSerializer()
-        case .msgpack, .msgpackBatched:
-            self.mode = .binary
-            self.serializer = MsgpackSwampSerializer()
+            case .json, .jsonBatched:
+                self.mode = .text
+                guessedSerializer = JSONSwampSerializer()
+            case .msgpack, .msgpackBatched:
+                self.mode = .binary
+                guessedSerializer = MsgpackSwampSerializer()
+        }
+        if let customSerializer = customSerializer {
+            self.serializer = customSerializer
+        } else {
+            self.serializer = guessedSerializer
         }
         socket.delegate = self
     }
