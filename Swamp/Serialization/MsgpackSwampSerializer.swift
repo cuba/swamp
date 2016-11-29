@@ -97,7 +97,9 @@ open class MsgpackSwampSerializer: SwampSerializer {
             var array = [Any]()
             if let mpArray = mpValue.arrayValue {
                 for mpSubVal in mpArray {
-                    array.append(mpValueToAny(mpSubVal))
+                    if let subVal = mpValueToAny(mpSubVal) {
+                        array.append(subVal)
+                    }
                 }
             }
             return array
@@ -146,7 +148,9 @@ open class MsgpackSwampSerializer: SwampSerializer {
             let mpArray = try unpackAll(data)
 
             for mpValue in mpArray {
-                unpacked.append(mpValueToAny(mpValue))
+                if let value = mpValueToAny(mpValue) {
+                    unpacked.append(value)
+                }
             }
             
             return unpacked[0] as? [Any]
